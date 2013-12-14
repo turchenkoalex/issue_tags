@@ -1,0 +1,5 @@
+en:
+  tags: Tags
+  show_all: Show all
+  settings:
+    use_contains: Use "contains" instead "equals" in filter

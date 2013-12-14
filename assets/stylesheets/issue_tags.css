@@ -1,0 +1,23 @@
+table.issues td.tags_names {
+  text-align: left;
+}
+
+.issue .attributes td.tags {
+  line-height: 20px;
+}
+
+.tags span.tag {
+  padding: 3px 5px;
+  background-color:rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+#sidebar .tags span.tag {
+  line-height: 2em;
+}
+
+.hidden_tag {
+  display: none;
+}

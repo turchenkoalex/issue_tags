@@ -1,0 +1,18 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'issue_tags.css', :plugin => 'issue_tags' %>
+<% end %>
+
+<%
+  issue_tags = issue.tags
+%>
+
+<% unless issue_tags.empty? %>
+  <tr>
+    <th class="tags"><%= l(:tags) %>:</th>
+    <td colspan=3 class="tags">
+      <% issue_tags.each do |tag| %>
+        <span class="tag"><%= link_to_tag tag, project %></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,29 @@
+<%
+  if project.nil?
+    tags = Tag.counted
+  else
+    tags = project.tags
+  end
+
+  max_tags = 15
+%>
+
+<% unless tags.empty? %>
+  <% content_for :header_tags do %>
+    <%= stylesheet_link_tag 'issue_tags.css', :plugin => 'issue_tags' %>
+    <%= javascript_include_tag 'issue_tags.js', :plugin => 'issue_tags' %>
+  <% end %>
+
+  <div class="tags">
+    <h3><%= l(:tags) %></h3>
+    <% tags[0..(max_tags - 1)].each do |tag| %>
+      <span class="tag"><%= link_to_tag tag, project %></span>
+    <% end %>
+    <% if tags.length >= max_tags %>
+      <% tags[max_tags..tags.length].each do |tag| %>
+        <span class="tag hidden_tag"><%= link_to_tag tag, project %></span>
+      <% end %>
+      <%= link_to l(:show_all), "#", class: "show_tags" %>
+    <% end %>
+  </div>
+<% end %>

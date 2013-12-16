@@ -21,3 +21,7 @@ table.issues td.tags_names {
 .hidden_tag {
   display: none;
 }
+
+table.settings tbody tr th {
+  text-align: left;
+}

@@ -1,8 +1,25 @@
-<table>
+<%
+  max_tags_sidebar_count = settings['max_tags_sidebar_count'].to_i
+  max_tags_sidebar_count = 15 if max_tags_sidebar_count < 5
+%>
+
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'issue_tags.css', :plugin => 'issue_tags' %>
+<% end %>
+
+
+<table class="settings">
   <tbody>
+
     <tr>
       <th><%= l('settings.use_contains') %></th>
       <td><%= check_box_tag 'settings[use_contains]', true, !!settings['use_contains'] %></td>
     </tr>
+
+    <tr>
+      <th><%= l('settings.max_tags_sidebar_count') %></th>
+      <td><%= number_field_tag 'settings[max_tags_sidebar_count]', max_tags_sidebar_count, in: 5..40 %></td>
+    </tr>
+
   </tbody>
 </table>

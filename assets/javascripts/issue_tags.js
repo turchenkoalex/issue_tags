@@ -26,5 +26,6 @@ $(function() {
   $('a.show_tags').on('click', function() {
     $('span.hidden_tag').removeClass('hidden_tag');
     this.remove();
+    return false;
   });
 });

@@ -7,6 +7,12 @@ module IssueTags
     def controller_issues_new_after_save(context={})
       controller_save_tags context
     end
+    
+    def controller_issues_bulk_edit_before_save(context={})
+      if context[:params] && context[:params][:issue] && context[:issue]
+        context[:issue][:savable_tags] = context[:params][:issue][:tags] unless context[:params][:issue][:tags].nil?
+      end
+    end
 
     protected
 

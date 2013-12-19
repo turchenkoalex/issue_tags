@@ -1,0 +1,21 @@
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'select2.css', :plugin => 'issue_tags' %>
+  <%= javascript_include_tag 'select2.min.js', :plugin => 'issue_tags' %>
+  <%= javascript_include_tag 'select2_locale_ru.js', :plugin => 'issue_tags' %>
+  <%= javascript_include_tag 'issue_tags.js', :plugin => 'issue_tags' %>
+<% end %>
+
+<%
+  project_tags = Tag.counted.map{ |x| x[:name] }.to_s
+%>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+	$("#issue_tags").select2({ tags: <%= raw project_tags %> });
+  });
+</script>
+
+<p>
+  <label for="issue_tags"><%= l(:tags) %></label>
+  <input id="issue_tags" name="issue[tags]" size="80" type="text" style="width: 99%;" value="" placeholder="<%= l(:label_no_change_option) %>">
+</p>

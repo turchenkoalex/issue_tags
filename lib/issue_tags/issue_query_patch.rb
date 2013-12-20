@@ -30,7 +30,7 @@ module IssueTags
             query = Tag.where(name: names)
           end
 
-          tag_ids = query.collect(&:id).join ","
+          tag_ids = query.map(&:id).join ","
 
           return "#{Issue.table_name}.id #{clause} in (select #{IssueTag.table_name}.issue_id from #{IssueTag.table_name} where #{IssueTag.table_name}.tag_id in (#{tag_ids}))"
         when "*"

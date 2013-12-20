@@ -14,7 +14,7 @@ module IssueTags
           .select("#{Tag.table_name}.name, count(*) as cnt")
           .group("#{Tag.table_name}.name")
           .order("cnt desc, #{Tag.table_name}.name")
-          .collect { |x| 
+          .map { |x| 
             { 
               name: x.name, 
               count: x.cnt

@@ -13,7 +13,7 @@ module IssueTags
           .joins(:tag)
           .order("#{Tag.table_name}.name")
           .select("#{Tag.table_name}.name")
-          .collect { |x| { name: x.name } }
+          .map { |x| { name: x.name } }
       end
 
       def tags_to_s
@@ -22,7 +22,7 @@ module IssueTags
           .joins(:tag)
           .order("#{Tag.table_name}.name")
           .select("#{Tag.table_name}.name")
-          .collect(&:name).join ", "
+          .map(&:name).join ", "
       end
       
       def save_tags(names)

@@ -7,7 +7,15 @@
 
 <%
   project_tags = issue.project.tags.map{ |x| x[:name] }.to_s
-  issue_tags = issue.tags.map{ |x| x[:name] }.join ","
+  if issue.new_record?
+    if @copy_from.nil?
+      issue_tags = ""
+    else
+      issue_tags = @copy_from.tags.map{ |x| x[:name] }.join ","
+    end
+  else
+    issue_tags = issue.tags.map{ |x| x[:name] }.join ","
+  end
 %>
 
 <script type="text/javascript">

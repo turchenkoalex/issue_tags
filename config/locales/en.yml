@@ -1,6 +1,6 @@
 en:
   tags: Tags
-  show_all: Show all
+  show_all: Show all (%{count})
   settings:
     use_contains: Use "contains" instead "equals" in filter
     max_tags_sidebar_count: Max count of tags in sidebar

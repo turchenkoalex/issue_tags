@@ -25,3 +25,8 @@ table.issues td.tags_names {
 table.settings tbody tr th {
   text-align: left;
 }
+
+a.show_tags {
+  white-space: nowrap;
+  font-size: 10px;
+}

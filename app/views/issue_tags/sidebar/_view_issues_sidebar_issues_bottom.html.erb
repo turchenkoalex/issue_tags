@@ -24,7 +24,7 @@
       <% tags[max_tags..tags.length].each do |tag| %>
         <span class="tag hidden_tag"><%= link_to_tag tag, project %></span>
       <% end %>
-      <%= link_to l(:show_all), "#", class: "show_tags" %>
+      <%= link_to l(:show_all, count: tags.length), "#", class: "show_tags" %>
     <% end %>
   </div>
 <% end %>

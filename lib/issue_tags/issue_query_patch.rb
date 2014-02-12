@@ -31,7 +31,7 @@ module IssueTags
           end
 
           tag_ids = query.map(&:id).join ","
-
+          return "(#{clause} 1 = 0)" if tag_ids.empty?
           return "#{Issue.table_name}.id #{clause} in (select #{IssueTag.table_name}.issue_id from #{IssueTag.table_name} where #{IssueTag.table_name}.tag_id in (#{tag_ids}))"
         when "*"
           return "exists(select 1 from #{IssueTag.table_name} where #{IssueTag.table_name}.issue_id = #{Issue.table_name}.id)"

@@ -8,7 +8,7 @@ Redmine::Plugin.register :issue_tags do
   name 'Issue Tags'
   author 'Turchenko Alexander'
   description 'Add missing tags support for issues'
-  version '0.0.3'
+  version '0.0.4'
   url 'https://github.com/TurchenkoAlex/issue_tags'
   author_url 'https://github.com/TurchenkoAlex'
   settings :default => { 'empty' => true }, :partial => 'issue_tags/settings/issue_tags'
